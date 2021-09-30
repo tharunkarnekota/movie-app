@@ -36,10 +36,10 @@ const App = () => {
           <h2> Search Your Favorite movie</h2>
           <form onSubmit={submitHandler}>
             <input type="text" value={search} onChange={changehandler}/><br /><br />
-            <input type="submit" name="search" className="btn btn-primary"/><br /><br />
+            <input type="submit" name="search" /><br /><br />
           </form>
           <div className="row">
-            {data.map(movie => 
+            {data.map(movie =>
             <div className="col-md-4">
               <div class="card" style={{"width":"18rem"}}>
                 <img src={movie.Poster} class="card-img-top" alt={movie.title} />

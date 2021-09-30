@@ -39,7 +39,7 @@ const App = () => {
             <input type="submit" name="search" className="btn btn-primary"/><br /><br />
           </form>
           <div className="row">
-            {data.map(movie => 
+            {data.map(movie =>
             <div className="col-md-4">
               <div class="card" style={{"width":"18rem"}}>
                 <img src={movie.Poster} class="card-img-top" alt={movie.title} />

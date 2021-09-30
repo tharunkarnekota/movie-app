@@ -13,39 +13,23 @@ const App = () => {
     ).then(value => setData(value.Search))
   }
 
-  const download = url =>{
-    fetch(url).then(response => {
-      response.arrayBuffer().then(function(buffer){
-        const url = window.URL.createObjectURL(new Blob([buffer]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download","image.png");
-        document.body.appendChild(link);
-        link.click();
-      });
-    })
-    .catch(err =>{
-      console.log(err);
-    })
-    
-  }
-
+ 
   return (
     <div>
       <center>
           <h2> Search Your Favorite movie</h2>
           <form onSubmit={submitHandler}>
-            <input type="text" value={search} onChange={changehandler}/><br /><br />
-            <input type="submit" name="search" className="btn btn-primary"/><br /><br />
+            <input type="text" value={search} placeHolder="movie/series" onChange={changehandler}/><br /><br />
+            <input type="submit" name="search" value="search"/> <br/><br />
           </form>
           <div className="row">
-            {data.map(movie => 
+            {data.map(movie =>
             <div className="col-md-4">
               <div class="card" style={{"width":"18rem"}}>
-                <img src={movie.Poster} class="card-img-top" alt={movie.title} />
+                <img src={movie.Poster} class="card-img-top" alt={movie.Title} />
                 <div class="card-body">
                   <h4 class="card-title">{movie.Title}</h4>
-                  <a className="btn btn-primary" onClick={()=>download(movie.Poster)} >Download poster</a>
+                  <a href={movie.Poster} className="btn btn-primary" download >Download poster</a>
                 </div>
               </div>
             </div> 
